@@ -1,0 +1,8 @@
+LOAD DATA
+INFILE 'Add_RT_RANGE2.dat'
+  TRUNCATE INTO TABLE BPT_Add_RT_RANGE2  
+  FIELDS TERMINATED BY ','
+  (
+		Policy,
+		Value		
+	)

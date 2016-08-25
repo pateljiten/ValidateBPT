@@ -1,0 +1,503 @@
+create table BPT_Bill_cycles  (Cycle_Code    NUMBER(4),
+        Cycle_Description    VARCHAR2(180),
+        Frequency    CHAR(1),
+        Multiplier    NUMBER(2),
+        Billing_Reference    VARCHAR2(20),
+        Cycle_Close_Day    NUMBER(2),
+        Cycle_Bill_Day    NUMBER(2),
+        Cycle_Population_Code    CHAR(1),
+        business_entity	NUMBER(9),
+		Limit_Frequency	NUMBER(2))
+
+
+create table BPT_Messages_Entities (  
+Message_Code	VARCHAR2(20),
+Message_type	VARCHAR2(6),
+Line_sequence_no	NUMBER(5),
+Message_language	CHAR(2),
+Message_Text	VARCHAR2(1500))
+
+create table BPT_Quality_Assurance (  
+Criteria_ID	VARCHAR2(6),
+QUALIF_SEQ	Number(9),
+Description	VARCHAR2(180),
+QA_Population_Type	CHAR(1),
+Entity_Type	VARCHAR2(60),
+Attribute_Name	VARCHAR2(200),
+From_Value	VARCHAR2(800),
+To_Value	VARCHAR2(800),
+ATTRIBUTE_ORIGIN	Char(1))
+
+create table BPT_CUSTOMER_TYPE_RANGE1	(
+CUSTOMER_TYPE	Char(1),
+CUSTTP_DESC	Varchar2(512),
+NAME_TYPE	Char(1),
+DEF_ADDR_TYPE	Char(1),
+ANONYMOUS_IND	Char(1),
+CRDT_EVAL_REQ_IND	Char(1),
+INIT_CRDT_CLASS	Char(4),
+PAYMENT_CATEGORY	Varchar2(4),
+DEF_PYM_MTD	Varchar2(3),
+DEF_PYM_TP	Char(1),
+ACCT_BAL_POLICY	Char(1),
+CYC_POPULATION_CD	Char(1),
+BILL_DEF_DOC_TYPE	Char(1),
+BILL_PRODUCT_IND	Char(1),
+BILL_ZERO_BAL_IND	Char(1),
+BILL_ITEM_TAX_IND	Char(1),
+BILL_DEF_DUE_DAYS	Number(2),
+DFLT_SUB_TYPE	Varchar2(4),
+ENTITY_LOCK_TYPE	Varchar2(2),
+FINANCIAL_LOCK_TYPE	Varchar2(2))
+
+create table BPT_CUSTOMER_SUB_TYPES_RANGE1	(
+CUSTOMER_TYPE	Char(1),
+CUST_SUB_TYPE	Varchar2(4),
+DESCRIPTION	Varchar2(512),
+L9_BILL_DEF_DUE_DAYS	Number(2))
+
+create table BPT_CSM_PYM_METHOD_VALIDRANGE1 (
+PAYMENT_TYPE	Char(1),
+PAYMENT_METHOD	Varchar2(3),
+PAYMENT_CATEGORY	Varchar2(4),
+PAYMENT_TYPE_DESC	Varchar2(512))
+
+create table BPT_CM1_CUST_TP_PYM_DUE_DAY (
+PAYMENT_TYPE	Char(1),
+PAYMENT_METHOD	Varchar2(3),
+PAYMENT_CATEGORY	Varchar2(4),
+PAYMENT_TYPE_DESC	Varchar2(512))
+
+create table BPT_GN1_CURRENCY_RANGE1(
+CURRENCY	Char(3),
+CURRENCY_DESC	Varchar2(30))
+
+create table BPT_CSM_CYCLE_RANGE1(
+Cycle_Code	NUMBER(4),
+Cycle_Description	VARCHAR2(180),
+Frequency	CHAR(1),
+Multiplier	NUMBER(2),
+Billing_Reference	VARCHAR2(20),
+Cycle_Close_Day	NUMBER(2),
+Cycle_Bill_Day	NUMBER(2),
+Cycle_Population_Code	CHAR(1),
+Limit_Frequency	NUMBER(2),
+L9_BLOCK_IND	CHAR(1))
+
+create table BPT_CM1_CYCLE_PARTITION_REL(
+CYCLE_CODE	NUMBER(4),
+PARTITION_ID	NUMBER(4),
+ONLINE_PARTITION_ID	NUMBER(4))
+
+create table BPT_CM1_GENERIC_CODES_RANGE1(
+BE	Number(9),
+GEN_TYPE	Varchar2(30),
+GEN_CODE	Varchar2(40),
+LANGUAGE	Varchar2(5),
+GEN_DESC	Varchar2(512))
+
+create table BPT_Payment_RANGE1(
+NAME	VARCHAR2 (3),
+DESCRIPTION	VARCHAR2 (180))
+
+create table BPT_Payment_RANGE2(
+NAME	VARCHAR2 (8),
+DESCRIPTION	VARCHAR2 (180))
+
+create table BPT_Payment_RANGE3(
+SOURCE_ID	VARCHAR2 (8 ),
+SOURCE_TYPE	VARCHAR2 (3 ),
+EXCEPTION_CONTROL_ACCOUNT	NUMBER (12),
+Currency	CHAR (3 ),
+DEPOSIT_BANK_CODE	NUMBER (20),
+DEPOSIT_BANK_ACCOUNT_NUMBER	NUMBER (255))
+
+create table BPT_Payment_RANGE4(
+Policy	VARCHAR2 (240),
+		Value	VARCHAR2 (30))
+
+create table BPT_Payment_RANGE5(		
+POLICY_TYPE	VARCHAR2 (30),
+POLICY_NAME	VARCHAR2 (240),
+POLICY_VALUE	VARCHAR2 (30),
+DESCRIPTION	VARCHAR2 (150))
+
+create table BPT_Backout_RANGE1(
+BACKOUT_REASON_CODE	Varchar2(6),
+BACKOUT_REASON_TYPE	Varchar2(3),
+DCK_CHARGE_INDICATOR	Char(1),
+BACKOUT_REASON_CODE_DESC	Varchar2(40),
+OVERWRITE_DCK	Char(1),
+CHARGE_AMOUNT	Number(18,2),
+DCK_CHARGE_CODE	Varchar2(25))
+
+create table BPT_Funds_Transfer_RANGE1(
+FUNDSTRANSFER_REASON_CODE	Varchar2(6),
+FUNDSTRANSFER_REASON_DESC	Varchar2(40))
+
+create table BPT_Refunds_RANGE1(
+Refund_Reason	Varchar2(6),
+Application_Method	Varchar2(5),
+Description	Varchar2(150),
+Manual_Refund	Char(1),
+Reversal_Indicator	Char(1),
+Charge_Code	Varchar2(25))
+
+create table BPT_Refunds_RANGE2(
+Policy	VARCHAR2 (240),
+Description	VARCHAR2 (150),
+		Value	VARCHAR2 (30))
+		
+create table BPT_Refunds_RANGE3(		
+Criteria_ID	NUMBER (12),
+Account_Status	VARCHAR2 (4 BYTE),
+Min_Days_from_Last_FA	NUMBER (6),
+Max_Days_from_Last_FA	NUMBER (6),
+Minimal_Overpayment_Amount	NUMBER (18),
+Maximal_Overpayment_Amount	NUMBER (18),
+Activity_Code	CHAR (4 BYTE),
+Refund_Reason_Code	CHAR (6 BYTE))
+
+create table BPT_Credit_Reason_RANGE1(
+Credit_Reason_Code	Varchar2(6),
+Description	Varchar2(40),
+Category_Code	Char(1),
+Activity_Level_Code	Char(1),
+Manual_Indicator	Char(1),
+Reversal_Indicator	Char(1),
+Allow_Reversal	Char(1),
+TAX_RELEVANT_IND	Char(1),
+Revenue_Code	Char(2),
+Charge_Code	Varchar2(25),
+FIN_ACTIVITY	Varchar2(8))
+
+create table BPT_Credit_Reason_RANGE2(
+POLICY_NAME VARCHAR2 (240),
+POLICY_VALUE VARCHAR2 (30))
+
+create table BPT_Credit_Reason_RANGE3(
+POLICY_NAME VARCHAR2 (240),
+POLICY_VALUE VARCHAR2 (30))
+
+create table BPT_Credit_Reason_RANGE4(
+POLICY_NAME VARCHAR2 (240),
+POLICY_VALUE VARCHAR2 (30))
+
+create table BPT_Credit_Reason_RANGE5(
+POLICY_NAME VARCHAR2 (240),
+POLICY_VALUE VARCHAR2 (30))
+
+create table BPT_Direct_Debit_RANGE1(
+Reason_Code	Varchar2(6),
+Reason_Type	Char(1),
+Source_ID	Varchar2(8),
+Description	Varchar2(150),
+Auto_Reissue_Indicator	Char(1),
+Reissue_Counter	Number(2),
+Change_Payment_Method	Char(1))
+
+create table BPT_Direct_Debit_RANGE3(
+Policy	VARCHAR2 (240),
+		Value	VARCHAR2 (30))
+		
+create table BPT_Add_RT_RANGE1(		
+		PAYMENT_METHOD	Varchar2(3),
+PAYMENT_SUB_METHOD	Varchar2(3),
+DESCRIPTION	Varchar2(150))
+
+create table BPT_Add_RT_RANGE2(		
+Policy	VARCHAR2 (240),
+		Value	VARCHAR2 (30))
+
+create table BPT_Add_RT_RANGE3(		
+Policy	VARCHAR2 (240),
+		Value	VARCHAR2 (30))
+		
+create table BPT_Add_RT_RANGE4(		
+	ACCOUNT_TYPE	Char(1),
+	ACCOUNT_SUB_TYPE	Varchar2(4),
+	DESCRIPTION	Varchar2(50),
+	EXCEPTION_ACCOUNT_IND	Char(1))
+
+create table BPT_AR1_CHARGE_CODE_RANGE1(		
+	CHARGE_CODE	Varchar2(25),
+	REVENUE_TYPE	Varchar2(2),
+	GROUP_TYPE	Varchar2(2),
+	BALANCE_IMPACT_CODE	Char(1),
+	MANUAL_OC_CREATE_IND	Char(1),
+	DESCRIPTION	Varchar2(180))
+	
+create table BPT_AR1_GENERIC_CODES_RANGE1(			
+	ID	Number(12),
+	TYPE	Varchar2(30),
+	CODE	Varchar2(60),
+	LANGUAGE	Varchar2(30),
+	DESCRIPTION	Varchar2(180),
+	BE	Number(9))
+	
+create table BPT_CL1_CATEGORY_RANGE1(    
+    CATEGORY_CODE    Varchar2(5),
+VERSION_NUMBER    Number(9),
+DESCRIPTION    Varchar2(255),
+LEN    Varchar2(20),
+PRIORITY    Number(4),
+START_CRITERIA    Varchar2(4000),
+STOP_CRITERIA    Varchar2(4000),
+TRIAL_PERIOD    Number(3),
+POLICY_CODE    Varchar2(128),
+COLLECTOR_GROUP_CODE    Varchar2(6),
+AGENCY_CODE    Varchar2(6),
+DAYS_TO_CNCL	Number(6))
+
+create table BPT_CL1_ATTR_MAPPING_RANGE1( 
+ATTRIBUTE_NAME	Varchar2(50),
+VERSION_NUMBER	Number(9),
+DESCRIPTION	Varchar2(255),
+ATTRIBUTE_DYNAMIC_IND	char(1),
+ATTRIBUTE_DESTINATION	Varchar2(50),
+ATTRIBUTE_ACTIVITY	char(1),
+ATTRIBUTE_SHORT_NAME	Varchar2(50),
+ATTRIBUTE_TYPE	char(1))
+
+create table BPT_CL1_COLLECTOR_GROUP_RANGE1( 
+COLLECTOR_SEQ	Number(4),
+COLLECTOR_CODE	Varchar2(6),
+COLLECTOR_NAME	Varchar2(255),
+COLLECTOR_GROUP_CODE	Varchar2(6))
+
+create table BPT_CL1_AGENCY_RANGE1(
+AGENCY_CODE	Varchar2(6),
+AGENCY_NAME	Varchar2(255),
+AGENCY_GROUP_CODE	Varchar2(6),
+L3_GROUP_WEIGHT	NUMBER (5,2),
+L9_PROVINCE_CODE	VARCHAR2 (300))
+
+create table BPT_CL1_ACTIVITY_RANGE1(
+ACTIVITY_CODE	Varchar2(26),
+DESCRIPTION	Varchar2(255),
+ACTIVITY_TYPE	Varchar2(50),
+ACTIVITY_NAME	Varchar2(50),
+PUBLISHED_TRANSACTION_NAME	Varchar2(250),
+HISTORY_RECORDED_IND	Char(1),
+POLICY_ACTIVITY_IND	Char(1),
+SEVERITY	Number(2),
+FU_CODE	Varchar2(6))
+
+create table BPT_CL1_ACT_RSN_RANGE1(
+ACTIVITY_CODE	Varchar2(25),
+REASON_CODE	Varchar2(6),
+DESCRIPTION	Varchar2(40),
+MEMO_TYPE	Number(5),
+PROCESS_MODE	Varchar2(10))
+
+create table BPT_CL1_FOLLOW_UP_RANGE1(
+FOLLOW_UP_CODE	Varchar2(6),
+FOLLOW_UP_DESCRIPTION	Varchar2(255))
+
+create table BPT_CL1_FOLLOW_UP_RANGE2(
+Policy	VARCHAR2 (30),
+Condition VARCHAR2 (30),
+Value	VARCHAR2 (30))
+
+create table BPT_CL1_AR_FIN_ACTIVITY_RANGE1(
+FINANCIAL_ACTIVITY_CODE	Varchar2(20),
+COLLECTION_STATE	Char(1),
+ACC_CR_AMT_STATE	Char(1),
+DESCRIPTION	Varchar2(255))
+
+create table BPT_UTL1_BD_HOLIDAYS_RANGE1(
+CALENDAR_CODE	Number(9),
+REOCCURRENCE_PERIOD	Char(2),
+REOCCURRENCE_DAY	Number(2),
+REOCCURRENCE_MONTH	Number(2),
+OCCURRENCE_YEAR	Number(4),
+DURATION	Number(4),
+DAY_TYPE	Char(2),
+BD_HOLIDAY_ID	Number(9))
+
+create table BPT_CL1_AR_DEBT_TYPE_RANGE1(
+DEBT_TYPE	Varchar2(20),
+DESCRIPTION	Varchar2(255),
+DEBT_AMOUNT_STATE	Char(1),
+GROUP_CLASS_TYPE	Varchar2(20))
+
+create table BPT_CL1_CUST_COMUNICAT_RANGE1(
+CCS_CODE	Varchar2(40),
+CCS_DESCRIPTION	Varchar2(255),
+L9_COMMUNICATION_TYPE	Varchar2(10))
+
+create table BPT_CL1_GENERIC_CODES_RANGE1(
+BE_ID	Number(9),
+TYPE	Varchar2(60),
+CODE	Varchar2(40),
+LANGUAGE	Varchar2(6),
+APPLICATION_ID	char(6),
+SHORT_DESC	Varchar2(60),
+DESCRIPTION	Varchar2(255))
+
+create table BPT_UTL1_BD_CALENDARS_RANGE1(
+BE_ID	Number(9),
+CALENDAR_CODE	Number(9),
+CALENDAR_NAME	Varchar2(50),
+PERIOD_START_DATE	Varchar2(20),
+PERIOD_END_DATE	Varchar2(20))
+
+create table BPT_CL1_PUNISH_LEVEL_RANGE1(
+PUNISHMENT_LEVEL_CODE	Varchar2(15),
+PUNISHMENT_LEVEL_DESC	Varchar2(512))
+
+create table BPT_CL1_PROPERTIES_RANGE1(
+BE	Number(9),
+POLICY_ID	Number(12,0),
+POLICY_TYPE	Varchar2(30),
+SYS_CREATION_DATE	Varchar2(20),
+SYS_UPDATE_DATE	Varchar2(20),
+POLICY_NAME	Varchar2(240),
+DL_SERVICE_CODE	char(5),
+DL_UPDATE_STAMP	Number(4),
+POLICY_VALUE	Varchar2(128),
+POLICY_QUALIFIER	Varchar2(30),
+LANGUAGE	Varchar2(6),
+DESCRIPTION	Varchar2(255))
+
+create table BPT_CL1_PA_POLICY_RANGE1(
+VERSION_NUM	Varchar2(40),
+PRIORITY	Number(9),
+RECOMMENDATION_CRITERIA	Number(4),
+PROCESS_NAME	Varchar2(4000),
+MIN_PAST_DUE_AMOUNT_PERCENT	Varchar2(128),
+MIN_INSTALL_DUE_AMT_PERCENT	Number(3),
+MIN_PAST_DUE_AMOUNT	Number(3),
+MIN_INSTALLMENT_DUE_AMOUNT	Number(18,2),
+MAX_INSTALLMENT_COUNT	Number(18,2),
+MAX_INSTALLMENT_INTERVAL	Number(4),
+GRACE_PERIOD	Number(4),
+DEFAULT_INSTALMMENT_COUNT	Number(4),
+INTERVAL_TYPE	Number(4),
+INTERVAL_FACTOR	Char(1),
+SHORT_DESC	Number(4),
+DESCRIPTION	Varchar2(60))
+
+create table BPT_cl1_bpm_process_RANGE1(
+PROCESS_NAME	Varchar2(128),
+PROCESS_TYPE	Varchar2(20),
+DESCRIPTION	Varchar2(512),
+APPLICATION_ID	char(6))
+
+create table BPT_CCS1_REQ_TYPE_RANGE1(
+REQUEST_TYPE_ID	Number(5),
+SYS_CREATION_DATE	Varchar2(20),
+SYS_UPDATE_DATE	Varchar2(20),
+OPERATOR_ID	Number(9),
+DL_SERVICE_CODE	char(5),
+DL_UPDATE_STAMP	Number(4),
+CODE	Varchar2(40),
+APP_ID	Number(5),
+ENTITY_TYPE_ID	Number(5),
+ACTIVITY_ID	Number(5),
+ACTIVITY_RESULT_ID	Number(5),
+COMMUNICATION_TYPE_ID	Number(5),
+TEMPLATE_ID	Number(5),
+BATCH_INPUT_IND	Char(1),
+BATCH_OUTPUT_IND	Char(1),
+SHORT_DESC	Varchar2(60),
+DESCRIPTION	Varchar2(255))
+
+create table BPT_CCS1_REQ_TYPE_RES_RANGE1(
+REQUEST_TYPE_ID	Number(5),
+RESOURCE_ID_LIST	Varchar2(1000),
+RESOURCE_ID	Number(5))
+
+create table BPT_CCS1_TEMPLATE_RANGE1(
+BE	Number(9),
+TEMPLATE_ID	Number(5),
+SYS_CREATION_DATE	Varchar2(20),
+SYS_UPDATE_DATE	Varchar2(20),
+OPERATOR_ID	Number(9),
+DL_SERVICE_CODE	char(5),
+DL_UPDATE_STAMP	Number(4),
+CODE	Varchar2(40),
+APP_ID	Number(5),
+EXTERNAL_REFERENCE	Varchar2(40),
+SHORT_DESC	Varchar2(60),
+DESCRIPTION	Varchar2(255))
+
+create table BPT_CCS1_COMM_TYPE_RANGE1(
+COMMUNICATION_TYPE_ID	Number(5),
+SYS_CREATION_DATE	Varchar2(20),
+SYS_UPDATE_DATE	Varchar2(20),
+OPERATOR_ID	Number(5),
+DL_SERVICE_CODE	char(5),
+DL_UPDATE_STAMP	Number(4),
+CODE	Varchar2(40),
+SHORT_DESC	Varchar2(60),
+DESCRIPTION	Varchar2(255))
+
+create table BPT_CCS1_RESOURCE_RANGE1(
+BE	Number(9),
+RESOURCE_ID	Number(5),
+VERSION	Varchar2(9),
+SYS_CREATION_DATE	Varchar2(20),
+SYS_UPDATE_DATE	Varchar2(20),
+OPERATOR_ID	Number(5),
+APPLICATION_ID	Number(5),
+DL_SERVICE_CODE	char(5),
+DL_UPDATE_STAMP	Number(4),
+EFFECTIVE_DATE	Varchar2(20),
+RESOURCE_NAME	Varchar2(30),
+SHORT_DESC	Varchar2(60),
+DESCRIPTION	Varchar2(255),
+RESOURCE_TYPE_CODE	Varchar2(40),
+LOCATION_TYPE_CODE	Varchar2(40),
+FILENAME	Varchar2(100),
+FILE_PATH	Varchar2(512),
+CONTENT	Clob)
+
+create table BPT_CCS1_APPLICATION_RANGE1(
+APP_ID	Number(5),
+SYS_CREATION_DATE	Varchar2(20),
+SYS_UPDATE_DATE	Varchar2(20),
+OPERATOR_ID	Number(5),
+APPLICATION_ID	Number(5),
+DL_SERVICE_CODE	char(5),
+DL_UPDATE_STAMP	Number(4),
+CODE	Varchar2(40),
+SHORT_DESC	Varchar2(60),
+DESCRIPTION	Varchar2(255))
+
+create table BPT_CCS1_ENTITY_TYPE_RANGE1(
+ENTITY_TYPE_ID	Number(5),
+SYS_CREATION_DATE	Varchar2(20),
+SYS_UPDATE_DATE	Varchar2(20),
+OPERATOR_ID	Number(5),
+APPLICATION_ID	Number(5),
+DL_SERVICE_CODE	char(5),
+DL_UPDATE_STAMP	Number(4),
+CODE	Varchar2(40),
+SHORT_DESC	Varchar2(60),
+DESCRIPTION	Varchar2(255))
+
+create table BPT_CCS1_ACTIVITY_RANGE1(
+ACTIVITY_ID	Number(5),
+SYS_CREATION_DATE	Varchar2(20),
+SYS_UPDATE_DATE	Varchar2(20),
+OPERATOR_ID	Number(5),
+APPLICATION_ID	Number(5),
+DL_SERVICE_CODE	char(5),
+DL_UPDATE_STAMP	Number(4),
+CODE	Varchar2(40),
+SHORT_DESC	Varchar2(60),
+DESCRIPTION	Varchar2(255))
+
+create table BPT_CCS1_ACTIVITY_RES_RANGE1(
+ACTIVITY_RESULT_ID	Number(5),
+ACTIVITY_ID	Number(5),
+SYS_CREATION_DATE	Varchar2(20),
+SYS_UPDATE_DATE	Varchar2(20),
+OPERATOR_ID	Number(5),
+APPLICATION_ID	Number(5),
+DL_SERVICE_CODE	char(5),
+DL_UPDATE_STAMP	Number(4),
+CODE	Varchar2(40),
+SHORT_DESC	Varchar2(60),
+DESCRIPTION	Varchar2(255))
