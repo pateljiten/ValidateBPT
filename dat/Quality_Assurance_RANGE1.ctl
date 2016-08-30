@@ -1,6 +1,6 @@
 LOAD DATA
 INFILE 'Quality_Assurance_RANGE1.dat'
-  TRUNCATE INTO TABLE BPT_Quality_Assurance  
+  TRUNCATE INTO TABLE BPT_Quality_Assurance_RANGE1  
   FIELDS TERMINATED BY ','
   (
 	Criteria_ID,

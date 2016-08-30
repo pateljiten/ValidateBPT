@@ -1,4 +1,55 @@
-create table BPT_Bill_cycles  (Cycle_Code    NUMBER(4),
+create table BPT_CHARGE_CODES_RANGE1 (
+CHARGE_CODE	Varchar2 (15),
+CHARGE_ENT_TYPE	Varchar2 (60),
+CHARGE_QUANTITY	CHAR(1),
+TAX_CODE	Varchar2 (6),
+REVENUE_CODE	Char(2),
+Description	Varchar2(180),
+CLASSIFICATION	Varchar2 (40),
+TAX_INCLUDED_IND	Char(1),
+BALANCE_IMPACT_IND	Char(1),
+CREATE_ZERO_CHARGE_IND	Char(1),
+TAX_CALC_IND	Char(1),
+MESSAGE_CODE	Varchar2 (20),
+DISCOUNTABLE_IND	Char(1),
+MANUAL_POLICY	Char(1),
+LOB	VARCHAR2 (30),
+LOB_DESCRIPTION	VARCHAR2 (30),
+INVOICE_TYPE	Varchar2(6),
+EVENT_GROUP_CODE	Varchar2(100),
+EVENT_GROUP_NAME	Varchar2(100),
+EVENT_GROUP_NAME_OUTGOING	Varchar2(100),
+USAGE_GROUP_CODE	Varchar2(100),
+USAGE_GROUP_NAME	Varchar2(100),
+USAGE_GROUP_NAME_OUTGOING	Varchar2(100),
+INCLUDE_CALL_DETAILS	Varchar2(100),
+BUNDLE_CODE	Char(1),
+call_category	Varchar2(100),
+Originating_1700_ind	Varchar2(100),
+ADDITIONAL_CHRG_IND	Varchar2(100),
+bill_section_code	Varchar2(100),
+SPEED	Varchar2(100),
+SPEED1	Varchar2(100),
+UPDSPEED	Varchar2(100),
+SPECTR	Varchar2(100),
+CAMERA	Varchar2(100),
+IPS	Varchar2(100),
+EMAIL	Varchar2(100),
+CAMT	Varchar2(100),
+CORPT	Varchar2(100),
+EQUIT	Varchar2(100),
+DECOT	Varchar2(100),
+UNIT	Varchar2(100),
+DAYOC	Varchar2(100),
+HOUR	Varchar2(100),
+CONCOC	Varchar2(100),
+CONCOC2	Varchar2(100),
+CUNIT	Varchar2(100),
+WHOUROC	Varchar2(100),
+RHOUROC	Varchar2(100),
+gaps_installment	Varchar2(100))
+
+create table BPT_Bill_cycles_RANGE1  (Cycle_Code    NUMBER(4),
         Cycle_Description    VARCHAR2(180),
         Frequency    CHAR(1),
         Multiplier    NUMBER(2),
@@ -10,14 +61,14 @@ create table BPT_Bill_cycles  (Cycle_Code    NUMBER(4),
 		Limit_Frequency	NUMBER(2))
 
 
-create table BPT_Messages_Entities (  
+create table BPT_Messages_Entities_RANGE1 (  
 Message_Code	VARCHAR2(20),
 Message_type	VARCHAR2(6),
 Line_sequence_no	NUMBER(5),
 Message_language	CHAR(2),
 Message_Text	VARCHAR2(1500))
 
-create table BPT_Quality_Assurance (  
+create table BPT_Quality_Assurance_RANGE1 (  
 Criteria_ID	VARCHAR2(6),
 QUALIF_SEQ	Number(9),
 Description	VARCHAR2(180),
@@ -126,7 +177,7 @@ create table BPT_Backout_RANGE1(
 BACKOUT_REASON_CODE	Varchar2(6),
 BACKOUT_REASON_TYPE	Varchar2(3),
 DCK_CHARGE_INDICATOR	Char(1),
-BACKOUT_REASON_CODE_DESC	Varchar2(40),
+BACKOUT_REASON_CODE_DESC	Varchar2(150),
 OVERWRITE_DCK	Char(1),
 CHARGE_AMOUNT	Number(18,2),
 DCK_CHARGE_CODE	Varchar2(25))
@@ -196,7 +247,7 @@ Auto_Reissue_Indicator	Char(1),
 Reissue_Counter	Number(2),
 Change_Payment_Method	Char(1))
 
-create table BPT_Direct_Debit_RANGE3(
+create table BPT_Direct_Debit_RANGE2(
 Policy	VARCHAR2 (240),
 		Value	VARCHAR2 (30))
 		
@@ -346,7 +397,7 @@ create table BPT_CL1_PUNISH_LEVEL_RANGE1(
 PUNISHMENT_LEVEL_CODE	Varchar2(15),
 PUNISHMENT_LEVEL_DESC	Varchar2(512))
 
-create table BPT_CL1_PROPERTIES_RANGE1(
+create table BPT_CL1_POLICIES_RANGE1(
 BE	Number(9),
 POLICY_ID	Number(12,0),
 POLICY_TYPE	Varchar2(30),
@@ -359,6 +410,20 @@ POLICY_VALUE	Varchar2(128),
 POLICY_QUALIFIER	Varchar2(30),
 LANGUAGE	Varchar2(6),
 DESCRIPTION	Varchar2(255))
+
+create table BPT_CL1_PROPERTIES_RANGE1(
+PTYPE	Varchar2(10),
+PNAME	Varchar2(128),
+SYS_CREATION_DATE	Varchar2(20),
+SYS_UPDATE_DATE	Varchar2(20),
+OPERATOR_ID	Number(9),
+APPLICATION_ID	char(6),
+DL_SERVICE_CODE	char(5),
+DL_UPDATE_STAMP	Number(4),
+PVALUE	Varchar2(255),
+SHORT_DESC	Varchar2(60),
+DESCRIPTION	Varchar2(255),
+PCONSTRAINTS	Varchar2(4000))
 
 create table BPT_CL1_PA_POLICY_RANGE1(
 VERSION_NUM	Varchar2(40),
@@ -440,7 +505,7 @@ VERSION	Varchar2(9),
 SYS_CREATION_DATE	Varchar2(20),
 SYS_UPDATE_DATE	Varchar2(20),
 OPERATOR_ID	Number(5),
-APPLICATION_ID	Number(5),
+APPLICATION_ID	char(6)),
 DL_SERVICE_CODE	char(5),
 DL_UPDATE_STAMP	Number(4),
 EFFECTIVE_DATE	Varchar2(20),
@@ -458,7 +523,7 @@ APP_ID	Number(5),
 SYS_CREATION_DATE	Varchar2(20),
 SYS_UPDATE_DATE	Varchar2(20),
 OPERATOR_ID	Number(5),
-APPLICATION_ID	Number(5),
+APPLICATION_ID	char(6),
 DL_SERVICE_CODE	char(5),
 DL_UPDATE_STAMP	Number(4),
 CODE	Varchar2(40),
@@ -470,7 +535,7 @@ ENTITY_TYPE_ID	Number(5),
 SYS_CREATION_DATE	Varchar2(20),
 SYS_UPDATE_DATE	Varchar2(20),
 OPERATOR_ID	Number(5),
-APPLICATION_ID	Number(5),
+APPLICATION_ID	char(6),
 DL_SERVICE_CODE	char(5),
 DL_UPDATE_STAMP	Number(4),
 CODE	Varchar2(40),
@@ -482,7 +547,7 @@ ACTIVITY_ID	Number(5),
 SYS_CREATION_DATE	Varchar2(20),
 SYS_UPDATE_DATE	Varchar2(20),
 OPERATOR_ID	Number(5),
-APPLICATION_ID	Number(5),
+APPLICATION_ID	char(6),
 DL_SERVICE_CODE	char(5),
 DL_UPDATE_STAMP	Number(4),
 CODE	Varchar2(40),
@@ -495,9 +560,34 @@ ACTIVITY_ID	Number(5),
 SYS_CREATION_DATE	Varchar2(20),
 SYS_UPDATE_DATE	Varchar2(20),
 OPERATOR_ID	Number(5),
-APPLICATION_ID	Number(5),
+APPLICATION_ID	char(6),
 DL_SERVICE_CODE	char(5),
 DL_UPDATE_STAMP	Number(4),
 CODE	Varchar2(40),
 SHORT_DESC	Varchar2(60),
 DESCRIPTION	Varchar2(255))
+
+create table BPT_STATS(
+DATA_RANGE    VARCHAR2(30),
+START_ROW    Number(5),
+START_COL    Number(5),
+END_ROW    Number(5),
+END_COL    Number(5),
+SHEET_COUNT Number(5),
+TABLE_COUNT Number(5),
+MATCH_COUNT Number(5),
+SHEET_ONLY_COUNT Number(5),
+TABLE_ONLY_COUNT Number(5),
+SYS_CREATION_DATE    Varchar2(20),
+SYS_UPDATE_DATE    Varchar2(20),
+OPERATOR_ID    Number(5),
+APPLICATION_ID    char(6),
+DL_SERVICE_CODE    char(5),
+DL_UPDATE_STAMP    Number(4));
+
+
+
+select 'update BPT_STATS set TABLE_COUNT = (select count(1) from BPT_' || DATA_RANGE || ') where DATA_RANGE = ''' || DATA_RANGE || '''' 
+from bpt_stats 
+
+
